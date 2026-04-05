@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Maker - Maak je eigen GIF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GIF Maker</h1>
+        <p>Maak eenvoudig een GIF van foto's of video's.</p>
+
+        <div class="upload-section">
+            <input type="file" id="imageInput" multiple accept="image/*,video/*">
+            <label for="imageInput" class="btn">Bestanden kiezen</label>
+            <div id="fileCount">Geen bestanden geselecteerd.</div>
+        </div>
+
+        <div class="edit-options">
+            <div class="control-group">
+                <label for="textOverlay">Tekst op GIF:</label>
+                <input type="text" id="textOverlay" placeholder="Typ je tekst hier...">
+            </div>
+            <div class="control-group">
+                <label for="filterSelect">Filter:</label>
+                <select id="filterSelect">
+                    <option value="none">Geen</option>
+                    <option value="grayscale">Zwart-wit</option>
+                    <option value="sepia">Sepia</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="interval">Snelheid (sec):</label>
+                <input type="number" id="interval" value="0.5" step="0.1" min="0.1">
+            </div>
+            <div class="control-group">
+                <label for="width">Breedte (px):</label>
+                <input type="number" id="width" value="400">
+            </div>
+            <div class="control-group">
+                <label for="height">Hoogte (px):</label>
+                <input type="number" id="height" value="400">
+            </div>
+            <button id="createGif" class="btn primary">Maak GIF</button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div class="preview-section">
+            <h2>Resultaat:</h2>
+            <div id="result">
+                <p>Nog geen GIF gemaakt.</p>
+            </div>
+            <div id="downloadContainer" style="display: none;">
+                <a id="downloadLink" class="btn success" download="mijn-animatie.gif">Download GIF</a>
+                <p class="mobile-tip">Tip: Op mobiel kun je de GIF ook lang ingedrukt houden om op te slaan.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.4.5/gifshot.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
